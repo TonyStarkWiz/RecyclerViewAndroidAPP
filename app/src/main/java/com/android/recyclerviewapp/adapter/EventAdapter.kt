@@ -23,7 +23,6 @@ class EventAdapter (
         eventList.add(0, event)
         eventList.sortBy { it.date }
         notifyItemInserted(eventList.indexOf(event))
-
         // eventList.sortBy { it.date } this is how your sort a list by  date
     }
 
@@ -37,13 +36,10 @@ class EventAdapter (
 
     override fun onBindViewHolder(holder: EventViewHolder, position: Int) {
         val event = eventList[position]
-
         holder.bind(event)
     }
 
     override fun getItemCount(): Int = eventList.size
-
-
 }
 
 class EventViewHolder(itemView: View, private val listener: EventAdapter.onItemClickListener) :
@@ -56,7 +52,6 @@ class EventViewHolder(itemView: View, private val listener: EventAdapter.onItemC
         title.text = event.title
         category.text = event.category
         date.text = event.date
-
         itemView.setOnClickListener {
             listener.onItemClick(event)
         }

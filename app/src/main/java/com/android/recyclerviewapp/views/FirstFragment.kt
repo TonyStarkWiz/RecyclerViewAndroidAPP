@@ -12,6 +12,8 @@ import com.android.recyclerviewapp.databinding.FragmentFirstBinding
 import com.android.recyclerviewapp.fragmentNavigation
 import com.android.recyclerviewapp.model.Event
 import com.android.recyclerviewapp.model.EventSingleton
+import com.android.recyclerviewapp.views.FirstFragment.Companion.newInstance
+import com.android.recyclerviewapp.views.SecondFragment.Companion.newInstance
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -40,10 +42,10 @@ class FirstFragment : Fragment() {
             override fun onItemClick(position: Event){
                 fragmentNavigation(
                     supportFragmentManager = requireActivity().supportFragmentManager,
-                    ThirdFragment.newInstance("", "", "")
+                    ThirdFragment.newInstance("", "")
                 )
-                Toast.makeText(requireContext(),"You Clicked on item no. $position" ,
-                    Toast.LENGTH_SHORT).show()
+//                Toast.makeText(requireContext(),"You Clicked on item no. $position" ,
+//                    Toast.LENGTH_SHORT).show()
             }
         })
     }
@@ -60,6 +62,7 @@ class FirstFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
         binding.myRecycler.apply {
             layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL,
                 false)
